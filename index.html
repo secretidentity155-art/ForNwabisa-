@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nwabisa 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Playfair Display', serif;
+    background:linear-gradient(to bottom,#ffe6eb,#fff5f7);
+    overflow-x:hidden;
+    text-align:center;
+    color:#5a2a2a;
+}
+
+/* PASSWORD SCREEN */
+#passwordScreen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#fff0f3;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+input{
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #ccc;
+    margin-top:10px;
+}
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#ff4f81;
+    color:white;
+    cursor:pointer;
+}
+button:hover{
+    background:#c94f7c;
+}
+
+/* MAIN CONTENT */
+#mainContent{
+    display:none;
+}
+
+/* Envelope */
+.envelope{
+    width:220px;
+    height:130px;
+    background:#ffccd5;
+    margin:120px auto;
+    position:relative;
+    cursor:pointer;
+    transition:1s;
+}
+.envelope:before{
+    content:'';
+    position:absolute;
+    top:-65px;
+    left:0;
+    width:0;
+    height:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-bottom:65px solid #ffb3c1;
+    transition:1s;
+}
+.opened:before{
+    transform:rotateX(180deg);
+    transform-origin:top;
+}
+
+/* Letter */
+.letter{
+    max-width:750px;
+    margin:auto;
+    padding:40px;
+    display:none;
+    animation:fadeIn 2s ease;
+    line-height:1.8;
+}
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Name */
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:4em;
+    color:#c94f7c;
+}
+
+/* Countdown */
+.countdown{
+    font-size:1.4em;
+    margin-top:30px;
+    color:#c94f7c;
+}
+
+/* Side Photos */
+.side-photos{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:120px;
+}
+.left{left:10px;}
+.right{right:10px;}
+
+.side-photos img{
+    width:100%;
+    margin:10px 0;
+    border-radius:15px;
+    filter:blur(3px);
+    transition:.5s;
+}
+.side-photos img:hover{
+    filter:blur(0);
+    transform:scale(1.05);
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .side-photos{display:none;}
+    h1{font-size:2.5em;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div id="passwordScreen">
+    <h2>This page is private 💌</h2>
+    <p>Enter the password</p>
+    <input type="password" id="passwordInput">
+    <button onclick="checkPassword()">Enter</button>
+</div>
+
+<div id="mainContent">
+
+<!-- 8 PHOTOS -->
+<div class="side-photos left">
+    <img src="nwabisa1.jpg">
+    <img src="nwabisa2.jpg">
+    <img src="nwabisa3.jpg">
+    <img src="nwabisa4.jpg">
+</div>
+
+<div class="side-photos right">
+    <img src="nwabisa5.jpg">
+    <img src="nwabisa6.jpg">
+    <img src="nwabisa7.jpg">
+    <img src="nwabisa8.jpg">
+</div>
+
+<h1>Nwabisa</h1>
+<p>This page exists because you do.</p>
+
+<div class="envelope" onclick="openLetter()" id="envelope"></div>
+
+<div class="letter" id="letterContent">
+    <p>
+    Even though timing wasn’t on our side,
+    I still wanted today to remind you how beautiful your presence is in my life.
+    </p>
+
+    <p>
+    You are intelligent in ways that inspire me.
+    Beautiful in ways that don’t even try.
+    And shy in a way that makes knowing you feel special.
+    </p>
+
+    <p>
+    I wasn’t ready when you were —
+    and I understand that matters.
+    But the admiration and care I have for you never changed.
+    </p>
+
+    <p>
+    If I could choose where to be today,
+    I’d choose somewhere quiet with you,
+    just enjoying your smile.
+    </p>
+
+    <p>
+    Happy Valentine’s Day, Nwabisa 🌹
+    </p>
+
+    <p style="margin-top:30px; font-style:italic; opacity:0.9;">
+    There is a line that says, “Love is patient, love is kind.”
+    I think I understand that better now than I did before.
+
+    When you were ready, I wasn’t —
+    and I know that truth matters.
+
+    As Shakespeare once wrote,
+    “Love is not love which alters when it alteration finds.”
+
+    I don’t make promises about timing.
+    I only know that what we have never felt ordinary to me.
+
+    And if something is meant to grow,
+    time will not erase it — it will refine it.
+    </p>
+
+    <div class="countdown" id="countdown"></div>
+</div>
+
+<!-- MUSIC -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/jSPpbOGnFgk?autoplay=1&loop=1&playlist=jSPpbOGnFgk"
+allow="autoplay"></iframe>
+
+</div>
+
+<script>
+function checkPassword(){
+    let pass=document.getElementById("passwordInput").value;
+    if(pass==="Mercedes Benz"){
+        document.getElementById("passwordScreen").style.display="none";
+        document.getElementById("mainContent").style.display="block";
+    } else{
+        alert("Wrong password 💔");
+    }
+}
+
+function openLetter(){
+    document.getElementById("envelope").classList.add("opened");
+    document.getElementById("letterContent").style.display="block";
+}
+
+/* Countdown to March 7, 2026 */
+let targetDate=new Date("March 7, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+    let now=new Date().getTime();
+    let distance=targetDate-now;
+
+    let days=Math.floor(distance/(1000*60*60*24));
+    let hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+    let seconds=Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML=
+    "Counting down until March 7th 💫<br>"+
+    days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+
+    if(distance<0){
+        document.getElementById("countdown").innerHTML="It's finally time ❤️";
+    }
+}
+setInterval(updateCountdown,1000);
+</script>
+
+</body>
+</html>
